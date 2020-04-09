@@ -5,18 +5,67 @@
     <title>Shravan Vemula</title>
     <link href="style.css" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Orbitron:wght@600&family=Oswald&family=Special+Elite&family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+
+        function validate(){
+
+
+                   var name=document.getElementById("name").value;
+                   var email=document.getElementById("email").value;
+                   var subject=document.getElementById("subject").value;
+                   var message=document.getElementById("message").value;
+
+
+                   var nameRegex= /^[a-zA-Z ]+$/g;
+                   var subjectRegex= /^[a-zA-Z0-9 ]+$/g;
+                   var emailRegex= /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/g;
+
+
+                   if(!nameRegex.test(name) || name.length==0){
+
+                            alert("Entered name is invalid");
+                            return false;
+                   }
+                   if(!emailRegex.test(email) || email.length==0){
+                            alert("Entered email is invalid");
+                            return false;
+
+                   }
+                   if(!subjectRegex.test(subject) || subject.length==0){
+
+                        alert("Entered subject is invalid");
+                        return false;
+                   }
+                   if(message.length==0){
+
+                        alert("message cannot be null");
+                        return false;
+                   }
+                   alert("message sent");
+        }
+
+
+    </script>
+
+</head>
 <body>
 
 
 
      <div class="nav" align="center">
+
+         <div class="name"> Shravan Vemula </div>
+
+         <a href="admin.html">Admin</a>
+         <a href="#gallery">Gallery</a>
+         <a href="#contact">Contact</a>
+         <a href="#about">About</a>
          <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#gallery">Gallery</a>
      </div>
 
+   <div class="main-container">
 
     <div id="home" class="home">
 
@@ -31,8 +80,10 @@
 
 
     </div>
+
     <div class="container">
         <div id="about">
+            <br><br><br>
             <br>
             <h3>About Me</h3>
             <p class="bio">Hey there! My name is Shravan , currently working as an intern in Zemoso Technologies,Hyd.I've completed my B.Tech in Computer Science stream at Sreenidhi Institute of Science and Technology,Hyd.Consistent and sustainable growth is my true passion. Empowering myself to do my work provides me with enormous gratification, subsequently resulting in technological and overall growth of myself and the company. </p>
@@ -45,38 +96,38 @@
             <br>
             <div class="grid">
                 <div class="skills">
-                <h4 class="heading-skills" align="center">My Technical Skills</h4>
+                    <h4 class="heading-skills" align="center">My Technical Skills</h4>
 
-                <div class="ranges">
-                <br>
-                <p class="wide">C,C++</p>
-                <div class="white">
-                    <div class="dark-grey" style="height:28px;width:60%"></div>
-                </div>
-                <p class="wide">Java</p>
-                <div class="white">
-                    <div class="dark-grey" style="height:28px;width:70%"></div>
-                </div>
-                <p class="wide">Python</p>
-                <div class="white">
-                    <div class="dark-grey" style="height:28px;width:30%"></div>
-                </div>
+                    <div class="ranges">
+                        <br>
+                        <p class="wide">C,C++</p>
+                        <div class="white">
+                            <div class="dark-grey" style="height:28px;width:60%"></div>
+                        </div>
+                        <p class="wide">Java</p>
+                        <div class="white">
+                            <div class="dark-grey" style="height:28px;width:70%"></div>
+                        </div>
+                        <p class="wide">Python</p>
+                        <div class="white">
+                            <div class="dark-grey" style="height:28px;width:30%"></div>
+                        </div>
 
 
-                <p class="wide">HTML/CSS/PHP/MYSQL</p>
-                <div class="white">
+                        <p class="wide">HTML/CSS/PHP/MYSQL</p>
+                        <div class="white">
 
-                    <div class="dark-grey" style="height:28px;width:60%"></div>
-                </div>
-                <p class="wide">Android Studio</p>
-                <div class="white">
-                    <div class="dark-grey" style="height:28px;width:30%"></div>
-                </div>
-                <p class="wide">Spring</p>
-                <div class="white">
-                    <div class="dark-grey" style="height:28px;width:30%"></div>
-                </div>
-                </div>
+                            <div class="dark-grey" style="height:28px;width:60%"></div>
+                        </div>
+                        <p class="wide">Android Studio</p>
+                        <div class="white">
+                            <div class="dark-grey" style="height:28px;width:30%"></div>
+                        </div>
+                        <p class="wide">Spring</p>
+                        <div class="white">
+                            <div class="dark-grey" style="height:28px;width:30%"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="project">
@@ -84,7 +135,7 @@
                     <h4 class="heading-skills" align="center">My Projects</h4>
                     <p style="text-align:left;"><span class="project-name">100 Year Calendar</span> <span class="tech">&nbsp&nbsp using java.</span></p>
                     <p style="text-align:left;"><span class="project-name">Content Hiding</span> <span class="tech">&nbsp&nbsp using HTML,CSS,PHP,MYSQL.</span></p>
-                    <p style="text-align:left;"><span class="project-name">Blood Finder</span><span class="tech">&nbsp&nbsp  using HTML,CSS,PHP,MYSQL.</span></p>
+                    <p style="text-align:left;"><span class="project-name">Blood Finder</span><span class="tech">&nbsp&nbsp using HTML,CSS,PHP,MYSQL.</span></p>
                     <p style="text-align:left;"><span class="project-name">Simple Login App</span> <span class="tech">&nbsp&nbsp using Android Studio.</span></p>
                     <p style="text-align:left;"><span class="project-name">Employee Management API</span> <span class="tech">&nbsp&nbsp using Spring Boot.</span></p>
 
@@ -92,7 +143,7 @@
 
                 <div class="interests">
 
-                <h4 class="heading-skills" align="center">My Interests</h4>
+                    <h4 class="heading-skills" align="center">My Interests</h4>
                     <p style="text-align:center;"><span class="project-name">Competitive Coding</span> </p>
                     <p style="text-align:center;"><span class="project-name">Data Science</span></p>
                     <p style="text-align:center;"><span class="project-name">Machine Learning</span></p>
@@ -101,7 +152,6 @@
                 </div>
 
             </div>
-        </div>
         </div>
         <br><br><br><br><br>
 
@@ -118,13 +168,13 @@
             </div><br>
             <p  class="form-heading" >Lets get in touch. Send me a message:</p>
             <br>
-            <form action="/action_page.php" target="_blank">
-                <p><input class="input" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="input" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="input" type="text" placeholder="Subject" required name="Subject"></p>
-                <p><input class="input" type="text" placeholder="Message" required name="Message"></p>
-                <p>
-                    <button class="submit-button" type="submit">
+            <form>
+                <p><input class="input" type="text" placeholder="Name" required name="name" id="name"></p>
+                <p><input class="input" type="text" placeholder="Email" required name="email" id="email"></p>
+                <p><input class="input" type="text" placeholder="Subject" required name="subject" id="subject"></p>
+                <p><textarea class="input" id="message" name="message" placeholder="Write your message here...." style="height:100px"></textarea></p>
+                    <p>
+                        <button onclick="validate()" class="submit-button" type="submit">
                         <i class="fa fa-paper-plane"></i> &nbsp &nbspSEND MESSAGE
                     </button>
                 </p>
@@ -132,26 +182,28 @@
 
 
         </div>
-        <br><br><br><br><br><br><br><br><br>
+
 
 
         <div id="gallery" align="center">
+            <br><br><br>
             <h3 align="left">My Gallery</h3>
+            <br><br><br>
             <div class="images" align="center">
-                <div class="image a"><img src="./me.png" width="300px" height="300px"></div>
-                <div class="image b"><img src="./me.png" width="300px" height="300px"></div>
-                <div class="image c"><img src="./me.png" width="300px" height="300px"></div>
-                <div class="image d"><img src="./me.png" width="300px" height="300px"></div>
-                <div class="image c"><img src="./me.png" width="300px" height="300px"></div>
-                <div class="image d"><img src="./me.png" width="300px" height="300px"></div>
+                <img src="./images/image1.jpeg" width="200px" height="200px">
+                <img src="./images/image2" width="200px" height="200px">
+                <img src="./images/image3.jpeg" width="200px" height="200px">
+                <img src="./images/image4.jpeg" width="200px" height="200px">
+                <img src="./images/image5.jpeg" width="200px" height="200px">
+                <img src="./images/image6.jpeg" width="200px" height="200px">
+
             </div>
             <br><br><br><br><br>
 
         </div>
     </div>
 
-
-
+   </div>
 
 </body>
 </html>

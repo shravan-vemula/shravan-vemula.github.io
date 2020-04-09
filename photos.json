@@ -1,0 +1,22 @@
+var photos={
+
+  "images": [
+
+      {"name": "bird1", "url" : "./images/image1.jpeg","info":"bird image ", "uploadedDate":"2020-04-09"} ,
+      {"name": "bird2", "url" : "./images/image2","info":"bird image ", "uploadedDate":"2020-04-09"} ,
+      {"name": "bird3", "url" : "./images/image3.jpeg","info":"bird image ", "uploadedDate":"2020-04-09"} ,
+      {"name": "dog1", "url" : "./images/image4.jpeg","info":"dog image ", "uploadedDate":"2020-04-09"} ,
+      {"name": "dog2", "url" : "./images/image5.jpeg","info":"dog image ", "uploadedDate":"2020-04-09"},
+      {"name": "dog3", "url" : "./images/image6.jpeg","info":"dog image ", "uploadedDate":"2020-04-09"}
+      
+  ]
+
+};
+
+
+
+
+
+
+
+
