@@ -256,7 +256,6 @@ function validateForEdit(){
 
 
   var nameRegex= /^[a-zA-Z0-9. ]+$/g;
-  var urlRegex= /^[a-zA-Z0-9./$+()%&!@#$ ]+$/g;
   var dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
 
@@ -265,8 +264,8 @@ function validateForEdit(){
            alert("Entered Image name is invalid");
            return false;
   }
-  if(!urlRegex.test(url) || url.length==0){
-           alert("Entered URL is invalid");
+  if(url.length==0){
+           alert("URL cannot be empty");
            return false;
 
   }
