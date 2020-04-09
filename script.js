@@ -25,9 +25,7 @@
               $(".buttons").hide(10000);
 
          }
-
-
-
+     
 
        });
      
@@ -37,65 +35,61 @@
 
 var imagesObject;
 var currentImage;
+var images;
 
 readJson();
 
 
 
-
 function readJson(){
-
-
-    if(localStorage.getItem('imagesObject') === null)
-    {
-      imagesObject=photos;
-      localStorage.setItem('imagesObject',JSON.stringify(photos));
-      console.log(localStorage.getItem('imagesObject'));
-    
-    }
-    else{
-
-   
-      imagesObject=JSON.parse(localStorage.getItem('imagesObject'));
-
-    }
-   
   
+     if(localStorage.getItem("images") === null){
+          
+        
+         
+          imagesObject=photos["images"];
+
+          localStorage.setItem("images",JSON.stringify(imagesObject));
+     
+          
+
+     }
+     else if(localStorage.getItem("images") !== null)
+     {
+         
+          imagesObject=JSON.parse(localStorage.getItem("images") || "[]");
+
+     }
+
     loadImages();
 
 }
 
 
 
-//addImage();
 
 function addImage(){
   
-    /*if(!validateForAdd()){
+    if(!validateForAdd()){
 
         alert("Not Valid Input entered in Form Fields");
         return false;
 
     }
-    */
+    
 
     
     var currImgObject= { name: $("#imagename-add").val(), url: $("#url-add").val() ,info: $("#info-add").val() , uploadedDate : $("#date-add").val()  };
-    //var currImgObject= { "name": "cat.jpg", "url": "./images/about.jpg" ,"info": "about image" , "uploadedDate" : "2020-04-04"  };
-
-
+   
     
-    currentImage=currImgObject;
-    //photos['images'].push(currImgObject);
+   
     imagesObject.push(currImgObject);
-    console.log(imagesObject);
+    localStorage.setItem("images",JSON.stringify(imagesObject));
+   
     
-
-    localStorage.setItem("imagesObject",JSON.stringify(imagesObject));
-
-    loadImages(imagesObject);
-  
+    loadImages();
     
+    alert("Image added successfully");
 
 }
 
@@ -106,21 +100,17 @@ function addImage(){
 function loadImages(){
 
  
-  var images=imagesObject.images;
+     images=imagesObject;
+  
   $(".images").empty();
 
     for(var i=0;i<images.length;i++){
 
         var tmp=images[i].url;
         
-        $(".images").append("<div><img src=" + tmp + " width=\"200px\" height=\"200px\" id=\"a\"><div class=\"buttons\"><button class=\"edit-button\" onclick='imageClickHandler("+ i +")' type=\"submit\">&nbspEdit Image</button><button class=\"remove-button\" onclick='removeImage("+ i +")' type=\"submit\">&nbspDelete Image</button></div></div>");
+        $(".images").append("<div><img src=" + tmp + " width=\"200px\" height=\"200px\" id=\"a\"><div class=\"buttons\"><button class=\"edit-button\" onclick='imageClickHandler("+ i +")' type=\"submit\">&nbspEdit Image</button><button class=\"remove-button\" onclick='deleteImage("+ i +")' type=\"submit\">&nbspDelete Image</button></div></div>");
 
     }
-
-
-
-
-
 
 }
 
@@ -137,30 +127,67 @@ function imageClickHandler(i){
 
 }
 
-function editImage(i){
-
-    setFormFields();
-
-
-
-
-}
-
 function setFormFields(){
 
 
 
-   var i=currentImage;
+     var i=currentImage;
+  
+  
+     $("#url-edit").val(imagesObject[i]["url"]);
+     $("#imagename-edit").val(imagesObject[i]["name"]);
+     $("#info-edit").val(imagesObject[i]["info"]);
+     $("#date-edit").val(imagesObject[i]["uploadedDate"]);
+  
+  
+  
+}
+  
+
+function editImage(){
 
 
-   $("#url-edit").val(imagesObject[i]["url"]);
-   $("#imagename-edit").val(imagesObject[i]["name"]);
-   $("#info-edit").val(imagesObject[i]["info"]);
-   $("#date-edit").val(imagesObject[i]["uploadedDate"]);
+
+          if(!validateForEdit()){
+
+               alert("Entered input is not valid");
+               return false;
+
+          }
+
+          imagesObject[currentImage]["url"]=$("#url-edit").val();
+          imagesObject[currentImage]["name"]=$("#imagename-edit").val();
+          imagesObject[currentImage]["info"]=$("#info-edit").val();
+          imagesObject[currentImage]["uploadedDate"]=$("#date-edit").val();
+
+          localStorage.setItem("images",JSON.stringify(imagesObject));
+          
+   
+
+          alert("Image edited successfully");
+          
 
 
 
 }
+
+function deleteImage(i){
+
+
+          currentImage=i;
+          if(confirm("Do you really want to Delete?")){
+               imagesObject.splice(currentImage,1);
+          }
+
+          localStorage.setItem("images",JSON.stringify(imagesObject));
+
+          loadImages();
+          alert("Image deleted successfully");
+
+
+
+}
+
 
 function validateForAdd(){
 
@@ -179,7 +206,7 @@ function validateForAdd(){
 
 
        var nameRegex= /^[a-zA-Z0-9. ]+$/g;
-       var urlRegex= /^[a-zA-Z0-9./$+()%&!@#$ ]+$/g;
+       
        var dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
 
@@ -188,8 +215,8 @@ function validateForAdd(){
                 alert("Entered Image name is invalid");
                 return false;
        }
-       if(!urlRegex.test(url) || url.length==0){
-                alert("Entered URL is invalid");
+       if(url.length==0){
+                alert("URL cannot be empty");
                 return false;
 
        }

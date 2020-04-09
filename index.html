@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Shravan Vemula</title>
-    <link href="style.css" rel="stylesheet" type="text/css" >
+    <link href="./css/style.css" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Orbitron:wght@600&family=Oswald&family=Special+Elite&family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
 
         function validate(){
@@ -17,6 +18,7 @@
                    var subject=document.getElementById("subject").value;
                    var message=document.getElementById("message").value;
 
+        
 
                    var nameRegex= /^[a-zA-Z ]+$/g;
                    var subjectRegex= /^[a-zA-Z0-9 ]+$/g;
@@ -49,6 +51,10 @@
 
     </script>
 
+
+    
+
+
 </head>
 <body>
 
@@ -58,7 +64,9 @@
 
          <div class="name"> Shravan Vemula </div>
 
+
          <a href="admin.html">Admin</a>
+
          <a href="#gallery">Gallery</a>
          <a href="#contact">Contact</a>
          <a href="#about">About</a>
@@ -88,7 +96,7 @@
             <h3>About Me</h3>
             <p class="bio">Hey there! My name is Shravan , currently working as an intern in Zemoso Technologies,Hyd.I've completed my B.Tech in Computer Science stream at Sreenidhi Institute of Science and Technology,Hyd.Consistent and sustainable growth is my true passion. Empowering myself to do my work provides me with enormous gratification, subsequently resulting in technological and overall growth of myself and the company. </p>
             <br>
-            <div class="buttons" align="center">
+            <div class="about-buttons" align="center">
             <div class="button"><a href="resume.pdf" style="text-decoration:none;">Resume</a></div>
             <div class="button"><a href="https://github.com/shravanvemula/" style="text-decoration:none;">Github</a></div>
             <div class="button"><a href="https://www.linkedin.com/in/shravan-vemula-899115131/" style="text-decoration:none;">LinkedIn</a></div>
@@ -168,13 +176,15 @@
             </div><br>
             <p  class="form-heading" >Lets get in touch. Send me a message:</p>
             <br>
+
             <form>
                 <p><input class="input" type="text" placeholder="Name" required name="name" id="name"></p>
                 <p><input class="input" type="text" placeholder="Email" required name="email" id="email"></p>
                 <p><input class="input" type="text" placeholder="Subject" required name="subject" id="subject"></p>
                 <p><textarea class="input" id="message" name="message" placeholder="Write your message here...." style="height:100px"></textarea></p>
-                    <p>
-                        <button onclick="validate()" class="submit-button" type="submit">
+                <p>
+
+                    <button class="submit-button" onclick="validate()">
                         <i class="fa fa-paper-plane"></i> &nbsp &nbspSEND MESSAGE
                     </button>
                 </p>
@@ -190,13 +200,7 @@
             <h3 align="left">My Gallery</h3>
             <br><br><br>
             <div class="images" align="center">
-                <img src="./images/image1.jpeg" width="200px" height="200px">
-                <img src="./images/image2" width="200px" height="200px">
-                <img src="./images/image3.jpeg" width="200px" height="200px">
-                <img src="./images/image4.jpeg" width="200px" height="200px">
-                <img src="./images/image5.jpeg" width="200px" height="200px">
-                <img src="./images/image6.jpeg" width="200px" height="200px">
-
+            
             </div>
             <br><br><br><br><br>
 
@@ -204,6 +208,16 @@
     </div>
 
    </div>
+
+  
+
+   <script src="script.js"></script>
+   <script>
+
+    $(".edit-button").hide();
+    $(".remove-button").hide();
+
+   </script>
 
 </body>
 </html>
